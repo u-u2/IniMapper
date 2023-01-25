@@ -1,4 +1,6 @@
-﻿namespace IniMapper.Elements {
+﻿using System.Collections.Generic;
+
+namespace IniMapper.Elements {
 	public class Section : IniElement<string> {
 
 		public string Name { get; set; }

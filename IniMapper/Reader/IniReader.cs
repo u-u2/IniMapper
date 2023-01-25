@@ -1,4 +1,8 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using IniMapper.Attributes;
 using IniMapper.Elements;
 
@@ -20,8 +24,9 @@ namespace IniMapper.Reader {
 			string line;
 			var sections = new Stack<Section>();
 			while ((line = _reader.ReadLine()) != null) {
-				if (line.StartsWith('[') && line.EndsWith(']')) {
-					sections.Push(new Section(line.Trim()[1..^1]));
+				if (line.StartsWith('['.ToString()) && line.EndsWith(']'.ToString())) {
+					var name = line.Trim().Substring(1, line.Length - 2);
+					sections.Push(new Section(name));
 				}
 				if (line.Contains('=')) {
 					var section = sections.Peek();

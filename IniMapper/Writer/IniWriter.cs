@@ -1,4 +1,6 @@
-﻿using IniMapper.Elements;
+﻿using System;
+using System.IO;
+using IniMapper.Elements;
 
 namespace IniMapper.Writer {
 	public class IniWriter : IWriter, IDisposable {

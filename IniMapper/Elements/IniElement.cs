@@ -1,4 +1,6 @@
-﻿namespace IniMapper.Elements {
+﻿using System.Collections.Generic;
+
+namespace IniMapper.Elements {
 	public abstract class IniElement<T> {
 
 		protected readonly Dictionary<string, T> _keyToElement = new();
