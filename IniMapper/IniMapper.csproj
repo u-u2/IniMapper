@@ -5,7 +5,14 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>11.0</LangVersion>
-		<AppDesignerFolder>Elements2</AppDesignerFolder>
+		<Title>IniMapper</Title>
+		<Authors>u-u2</Authors>
+		<Description>ini reading, writing and mapping to class</Description>
+		<PackageProjectUrl>https://github.com/u-u2/IniMapper</PackageProjectUrl>
+		<PackageTags>ini</PackageTags>
+		<Version>1.1.0</Version>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 </Project>
