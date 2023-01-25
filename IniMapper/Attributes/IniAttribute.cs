@@ -1,4 +1,6 @@
-﻿namespace IniMapper.Attributes {
+﻿using System;
+
+namespace IniMapper.Attributes {
 
 	[AttributeUsage(AttributeTargets.Property,
 		AllowMultiple = false,

@@ -1,4 +1,5 @@
-﻿using IniMapper.Elements;
+﻿using System.Collections.Generic;
+using IniMapper.Elements;
 
 namespace IniMapper.Reader {
 	public interface IReader {

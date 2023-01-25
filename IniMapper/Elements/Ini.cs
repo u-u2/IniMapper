@@ -1,4 +1,6 @@
-﻿namespace IniMapper.Elements {
+﻿using System.Collections.Generic;
+
+namespace IniMapper.Elements {
 	public class Ini : IniElement<Section> {
 
 		public IEnumerable<Section> Sections => _keyToElement.Values;

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IniMapper", "IniMapper\IniMapper.csproj", "{74FEE464-A991-496F-96FC-51FDB5029D4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IniMapperTests", "IniMapperTests\IniMapperTests.csproj", "{31CE4532-B0D0-4682-A4EC-B7247AFAD954}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IniMapperTests", "IniMapperTests\IniMapperTests.csproj", "{31CE4532-B0D0-4682-A4EC-B7247AFAD954}"
 	ProjectSection(ProjectDependencies) = postProject
 		{74FEE464-A991-496F-96FC-51FDB5029D4A} = {74FEE464-A991-496F-96FC-51FDB5029D4A}
 	EndProjectSection
@@ -16,8 +16,8 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{74FEE464-A991-496F-96FC-51FDB5029D4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74FEE464-A991-496F-96FC-51FDB5029D4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74FEE464-A991-496F-96FC-51FDB5029D4A}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{74FEE464-A991-496F-96FC-51FDB5029D4A}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{74FEE464-A991-496F-96FC-51FDB5029D4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74FEE464-A991-496F-96FC-51FDB5029D4A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{31CE4532-B0D0-4682-A4EC-B7247AFAD954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
