@@ -33,6 +33,8 @@ namespace IniMapper.Reader {
 			}
 			return sections.Reverse().ToList();
 		}
+
+		/// <inheritdoc/>
 		public Ini ReadIni() {
 			var ini = new Ini();
 			foreach (var section in ReadSections()) {
@@ -41,6 +43,7 @@ namespace IniMapper.Reader {
 			return ini;
 		}
 
+		/// <inheritdoc/>
 		public T ReadValue<T>() where T : new() {
 			var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance)
 				.Where(p => p.GetCustomAttribute<IniAttribute>(false) != null)
@@ -63,6 +66,7 @@ namespace IniMapper.Reader {
 			return obj;
 		}
 
+		/// <inheritdoc/>
 		public void Dispose() {
 			_reader.Dispose();
 			GC.SuppressFinalize(this);

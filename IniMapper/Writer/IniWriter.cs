@@ -7,11 +7,16 @@ namespace IniMapper.Writer {
 
 		private int _currentRow;
 
+		/// <summary>
+		/// Initialize a new instance of <see cref="IniWriter"/> class
+		/// </summary>
+		/// <param name="writer"></param>
 		public IniWriter(TextWriter writer) {
 			_writer = writer;
 			_currentRow = 0;
 		}
 
+		/// <inheritdoc/>
 		public void WriteSection(string name) {
 			if (_currentRow > 0) {
 				_writer.WriteLine();
@@ -20,6 +25,7 @@ namespace IniMapper.Writer {
 			_currentRow++;
 		}
 
+		/// <inheritdoc/>
 		public void WriteProperty(string key, string value) {
 			if (_currentRow > 0) {
 				_writer.WriteLine();
@@ -28,6 +34,7 @@ namespace IniMapper.Writer {
 			_currentRow++;
 		}
 
+		/// <inheritdoc/>
 		public void Write(Ini ini) {
 			var separateCount = ini.SectionCount - 1;
 			var separated = 0;
@@ -43,6 +50,7 @@ namespace IniMapper.Writer {
 			}
 		}
 
+		/// <inheritdoc/>
 		public void Dispose() {
 			_writer.Dispose();
 			GC.SuppressFinalize(this);
