@@ -24,6 +24,9 @@
 			}
 		}
 
+		/// <summary>
+		/// Initialize a new instance of <see cref="Ini"/> class
+		/// </summary>
 		public Ini() {
 		}
 

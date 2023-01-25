@@ -15,6 +15,9 @@
 			set => _keyToElement[key] = value;
 		}
 
+		/// <summary>
+		/// Initialize a new instance of <see cref="Section"/> class
+		/// </summary>
 		public Section(string name) {
 			Name = name;
 		}

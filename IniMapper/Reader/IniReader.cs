@@ -7,10 +7,15 @@ namespace IniMapper.Reader {
 
 		private readonly TextReader _reader;
 
+		/// <summary>
+		/// Initialize a new instance of <see cref="IniReader"/> class
+		/// </summary>
+		/// <param name="reader"></param>
 		public IniReader(TextReader reader) {
 			_reader = reader;
 		}
 
+		/// <inheritdoc/>
 		public List<Section> ReadSections() {
 			string line;
 			var sections = new Stack<Section>();
