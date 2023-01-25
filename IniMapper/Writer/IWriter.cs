@@ -22,5 +22,13 @@ namespace IniMapper.Writer {
 		/// <param name="ini"></param>
 		public void Write(Ini ini);
 
+
+		/// <summary>
+		/// Write <see cref="T"/> class to ini.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="t">Ini entity</param>
+		public void Write<T>(T t);
+
 	}
 }

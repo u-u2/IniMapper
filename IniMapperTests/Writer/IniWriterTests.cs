@@ -1,4 +1,5 @@
 ﻿using IniMapper.Elements;
+using IniMapperTests.Entity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace IniMapper.Writer.Tests {
@@ -22,6 +23,33 @@ namespace IniMapper.Writer.Tests {
 
 				[Section2]
 				Key2=Value2
+				""";
+			Assert.AreEqual(expect, result);
+		}
+
+		[TestMethod()]
+		public void WriteEntityTest() {
+			var fileName = "example_entity.ini";
+			var example = new Example() {
+				Name = "Marry",
+				Organization = "Test",
+				Server = "test.tet",
+				Port = 9000,
+				File = "file.dat",
+			};
+			using (var writer = new IniWriter(new StreamWriter(fileName, false))) {
+				writer.Write(example);
+			}
+			var result = File.ReadAllText(fileName);
+			var expect = """
+				[owner]
+				name=Marry
+				organization=Test
+
+				[database]
+				server=test.tet
+				port=9000
+				file=file.dat
 				""";
 			Assert.AreEqual(expect, result);
 		}
