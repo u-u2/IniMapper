@@ -12,10 +12,10 @@
 		/// <returns></returns>
 		public override Section this[string key] {
 			get {
-				if (_keyToElement.ContainsKey(key)) {
-					return _keyToElement[key];
+				if (TryGetElement(key, out Section section)) {
+					return section;
 				}
-				var section = new Section(key);
+				section = new Section(key);
 				_keyToElement.Add(key, section);
 				return section;
 			}
