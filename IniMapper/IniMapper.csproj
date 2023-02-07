@@ -15,4 +15,8 @@
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Folder Include="Reader\Parser\" />
+	</ItemGroup>
+
 </Project>

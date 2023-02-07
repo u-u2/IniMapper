@@ -1,20 +1,21 @@
 ﻿using System.Collections.Generic;
 
 namespace IniMapper.Elements {
-	public class Section : IniElement<string> {
+	public class Section {
 
-		public string Name { get; set; }
+		private readonly Dictionary<string, string> _keyToValue;
+		public string Name { get; private set; }
 
-		public IEnumerable<string> Keys => _keyToElement.Keys;
+		public IReadOnlyDictionary<string, string> KeyToValue => _keyToValue;
 
 		/// <summary>
 		/// key of property.
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public override string this[string key] {
-			get => _keyToElement[key];
-			set => _keyToElement[key] = value;
+		public string this[string key] {
+			get => _keyToValue[key];
+			set => _keyToValue[key] = value;
 		}
 
 		/// <summary>
@@ -22,6 +23,7 @@ namespace IniMapper.Elements {
 		/// </summary>
 		public Section(string name) {
 			Name = name;
+			_keyToValue = new Dictionary<string, string>();
 		}
 
 	}

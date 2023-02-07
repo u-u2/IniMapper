@@ -24,13 +24,13 @@ namespace IniMapper.Reader.Tests {
 			using (var reader = new IniReader(new StreamReader(s_fileName))) {
 				ini = reader.ReadIni();
 			}
-			Assert.IsTrue(ini.TryGetElement("owner", out Section owner));
-			Assert.IsTrue(owner.TryGetElement("name", out string name));
-			Assert.IsTrue(owner.TryGetElement("organization", out string organization));
-			Assert.IsTrue(ini.TryGetElement("database", out Section database));
-			Assert.IsTrue(database.TryGetElement("server", out string server));
-			Assert.IsTrue(database.TryGetElement("port", out string port));
-			Assert.IsTrue(database.TryGetElement("file", out string file));
+			Assert.IsTrue(ini.KeyToSection.TryGetValue("owner", out Section owner));
+			Assert.IsTrue(owner.KeyToValue.TryGetValue("name", out string name));
+			Assert.IsTrue(owner.KeyToValue.TryGetValue("organization", out string organization));
+			Assert.IsTrue(ini.KeyToSection.TryGetValue("database", out Section database));
+			Assert.IsTrue(database.KeyToValue.TryGetValue("server", out string server));
+			Assert.IsTrue(database.KeyToValue.TryGetValue("port", out string port));
+			Assert.IsTrue(database.KeyToValue.TryGetValue("file", out string file));
 		}
 
 		[TestMethod()]
