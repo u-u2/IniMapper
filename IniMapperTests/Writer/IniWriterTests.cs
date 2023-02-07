@@ -43,7 +43,7 @@ namespace IniMapper.Writer.Tests {
 			var result = File.ReadAllText(fileName);
 			var expect = """
 				[owner]
-				name=Marry
+				na\=me=Marry
 				organization=Test
 
 				[database]

@@ -24,16 +24,28 @@ namespace IniMapper.Reader {
 			string line;
 			var sections = new Stack<Section>();
 			while ((line = _reader.ReadLine()) != null) {
-				if (line.StartsWith('['.ToString()) && line.EndsWith(']'.ToString())) {
-					var name = line.Trim().Substring(1, line.Length - 2);
-					sections.Push(new Section(name));
-				}
-				if (line.Contains('=')) {
-					var section = sections.Peek();
-					var keyValue = line.Split('=')
-						.Select(x => x.Trim())
-						.ToArray();
-					section[keyValue[0]] = keyValue[1];
+				var found = false;
+				for (int i = 0; i < line.Length; i++) {
+					if (found) {
+						break;
+					}
+					var ch = line[i];
+					switch (ch) {
+						case '[':
+							var end = line.IndexOf(']');
+							var name = line.Substring(i + 1, end - 1);
+							sections.Push(new Section(name.Trim()));
+							found = true;
+							break;
+						case '=':
+							if (i > 0 && line[i - 1] != '\\') {
+								var key = line.Substring(0, i - 1);
+								var value = line.Substring(i + 1, line.Length - (i + 1));
+								sections.Peek()[key.Trim()] = value.Trim();
+								found = true;
+							}
+							break;
+					}
 				}
 			}
 			return sections.Reverse().ToList();

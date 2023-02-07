@@ -3,7 +3,7 @@
 namespace IniMapperTests.Entity {
 	public class Example {
 
-		[Ini("owner", "name")]
+		[Ini("owner", "na\\=me")]
 		public string? Name { get; set; }
 
 		[Ini("owner", "organization")]

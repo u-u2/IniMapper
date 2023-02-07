@@ -1,28 +1,27 @@
 ﻿using System.Collections.Generic;
 
 namespace IniMapper.Elements {
-	public class Ini : IniElement<Section> {
+	public class Ini {
 
-		public IEnumerable<Section> Sections => _keyToElement.Values;
-
-		public int SectionCount => _keyToElement.Count;
+		private readonly Dictionary<string, Section> _keyToSection;
+		public IReadOnlyDictionary<string, Section> KeyToSection => _keyToSection;
 
 		/// <summary>
 		/// name of section.
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public override Section this[string key] {
+		public Section this[string key] {
 			get {
-				if (TryGetElement(key, out Section section)) {
+				if (_keyToSection.TryGetValue(key, out var section)) {
 					return section;
 				}
 				section = new Section(key);
-				_keyToElement.Add(key, section);
+				_keyToSection.Add(key, section);
 				return section;
 			}
 			set {
-				_keyToElement[key] = value;
+				_keyToSection[key] = value;
 			}
 		}
 
@@ -30,6 +29,7 @@ namespace IniMapper.Elements {
 		/// Initialize a new instance of <see cref="Ini"/> class
 		/// </summary>
 		public Ini() {
+			_keyToSection = new Dictionary<string, Section>();
 		}
 
 	}

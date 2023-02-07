@@ -42,11 +42,11 @@ namespace IniMapper.Writer {
 
 		/// <inheritdoc/>
 		public void Write(Ini ini) {
-			var separateCount = ini.SectionCount - 1;
+			var separateCount = ini.KeyToSection.Count - 1;
 			var separated = 0;
-			foreach (var section in ini.Sections) {
+			foreach (var section in ini.KeyToSection.Values) {
 				WriteSection(section.Name);
-				foreach (var key in section.Keys) {
+				foreach (var key in section.KeyToValue.Keys) {
 					WriteProperty(key, ini[section.Name][key]);
 				}
 				if (separated < separateCount) {
