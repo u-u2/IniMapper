@@ -5,7 +5,6 @@ namespace IniMapper.Elements {
 
 		private readonly Dictionary<string, string> _keyToValue;
 		public string Name { get; private set; }
-
 		public IReadOnlyDictionary<string, string> KeyToValue => _keyToValue;
 
 		/// <summary>
@@ -22,8 +21,8 @@ namespace IniMapper.Elements {
 		/// Initialize a new instance of <see cref="Section"/> class
 		/// </summary>
 		public Section(string name) {
-			Name = name;
 			_keyToValue = new Dictionary<string, string>();
+			Name = name;
 		}
 
 	}
