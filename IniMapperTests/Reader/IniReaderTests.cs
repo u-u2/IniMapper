@@ -25,12 +25,17 @@ namespace IniMapper.Reader.Tests {
 				ini = reader.ReadIni();
 			}
 			Assert.IsTrue(ini.KeyToSection.TryGetValue("owner", out Section owner));
-			Assert.IsTrue(owner.KeyToValue.TryGetValue("name", out string name));
+			Assert.IsTrue(owner.KeyToValue.TryGetValue("na\\=me", out string name));
+			Assert.AreEqual("John Doe", name);
 			Assert.IsTrue(owner.KeyToValue.TryGetValue("organization", out string organization));
+			Assert.AreEqual("Acme Widgets Inc=.", organization);
 			Assert.IsTrue(ini.KeyToSection.TryGetValue("database", out Section database));
 			Assert.IsTrue(database.KeyToValue.TryGetValue("server", out string server));
+			Assert.AreEqual("localhost", server);
 			Assert.IsTrue(database.KeyToValue.TryGetValue("port", out string port));
+			Assert.AreEqual("143", port);
 			Assert.IsTrue(database.KeyToValue.TryGetValue("file", out string file));
+			Assert.AreEqual("\"pay=roll.dat\"", file);
 		}
 
 		[TestMethod()]
@@ -39,11 +44,11 @@ namespace IniMapper.Reader.Tests {
 			using (var reader = new IniReader(new StreamReader(s_fileName))) {
 				example = reader.ReadValue<Example>();
 			}
-			Assert.AreEqual(example.Name, "John Doe");
-			Assert.AreEqual(example.Organization, "Acme Widgets Inc.");
-			Assert.AreEqual(example.Server, "localhost");
-			Assert.AreEqual(example.Port, 143);
-			Assert.AreEqual(example.File, "\"payroll.dat\"");
+			Assert.AreEqual("John Doe", example.Name);
+			Assert.AreEqual("Acme Widgets Inc=.", example.Organization);
+			Assert.AreEqual("localhost", example.Server);
+			Assert.AreEqual(143, example.Port);
+			Assert.AreEqual("\"pay=roll.dat\"", example.File);
 		}
 	}
 }
