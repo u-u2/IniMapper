@@ -39,7 +39,7 @@ namespace IniMapper.Reader {
 							break;
 						case '=':
 							if (i > 0 && line[i - 1] != '\\') {
-								var key = line.Substring(0, i - 1);
+								var key = line.Substring(0, i);
 								var value = line.Substring(i + 1, line.Length - (i + 1));
 								sections.Peek()[key.Trim()] = value.Trim();
 								found = true;

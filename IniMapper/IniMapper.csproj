@@ -10,11 +10,9 @@
 		<Description>ini reading, writing and mapping to class</Description>
 		<PackageProjectUrl>https://github.com/u-u2/IniMapper</PackageProjectUrl>
 		<PackageTags>ini</PackageTags>
-		<Version>2.0.2</Version>
+		<Version>2.0.4</Version>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<IncludeSymbols>true</IncludeSymbols>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 
 </Project>
